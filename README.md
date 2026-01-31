@@ -1,1 +1,15 @@
 # week10assignment
+#include <string> using namespace std;
+class Employee { protected:
+    string firstName;     string lastName;     char initial;
+public:     Employee(string f, char i, string l)         : firstName(f), initial(i), lastName(l) {}     virtual ~Employee() {}
+    virtual double calculateSalary() const = 0; };
+class SalaryEmployee : public Employee { private:
+    double monthlySalary;
+public:     SalaryEmployee(string f, char i, string l, double salary)         : Employee(f, i, l), monthlySalary(salary) {}
+    double calculateSalary() const override {         return monthlySalary;     } };
+class HourlyEmployee : public Employee { private:
+    double hourlyRate;     double hoursWorked;
+public:     HourlyEmployee(string f, char i, string l, double rate, double hours)         : Employee(f, i, l), hourlyRate(rate), hoursWorked(hours) {}
+    double calculateSalary() const override {         return hourlyRate * hoursWorked;     }
+};
