@@ -1,4 +1,4 @@
-# week10assignment
+
 #include <string> using namespace std;
 class Employee { protected:
     string firstName;     string lastName;     char initial;
